@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../images/bac.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+#top1 {
+    margin: 0;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    width: 100%;
+    min-height: 30px;
+}
+
+#offer {
+    text-align: center;
+    color: deeppink;
+    font-size: 18px;
+    font-weight: bold;
+    animation: blink 2s infinite;
+}
+
+#top {
+    margin: 0;
+    width: 100%;
+    min-height: 40px;
+    background-color: bisque;
+    color: black;
+    font-weight: 300;
+    text-align: center;
+}
+
+#text {
+    padding: 10px;
+    transition: opacity 0.5s;
+}
+
+.logo {
+    color: black;
+    width: 100%;
+    position: relative;
+}
+
+#name {
+    font-weight: bolder;
+    text-align: center;
+    font-size: medium;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-style: italic;
+}
+
+.categories p {
+    font-size: medium;
+    text-shadow: 2px 3px 4px gray;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.categories p:hover {
+    color: deeppink;
+    transform: scale(1.06);
+}
+
+.categories p.active {
+    color: deeppink;
+    font-weight: bold;
+    transform: scale(1.06);
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    text-align: center;
+    flex-wrap: nowrap;
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    cursor: pointer;
+    font-style: italic;
+}
+
+.icons div {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icons div:hover {
+    color: deeppink;
+    transform: scale(1.05);
+}
+
+#header {
+    width: 100%;
+    text-align: center;
+    padding: 30px 15px;
+    margin: 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#heading {
+    font-size: 30px;
+    font-weight: bold;
+    color: #a34f91;
+    margin: 0 0 15px;
+}
+
+#header p:not(#heading) {
+    font-size: 16px;
+    color: #444;
+    margin: 0;
+}
+
+.section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    padding: 25px 5%;
+    margin: 0 auto 40px;
+}
+
+#TraditionalWear,
+#WesternWear,
+#CasualWear {
+    text-align: center;
+    padding: 20px 15px;
+    background-color: rgba(255, 255, 255, 0.65);
+    border: 1px solid #f3c6d9;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(150, 80, 110, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+#TraditionalWear:hover,
+#WesternWear:hover,
+#CasualWear:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(219, 112, 147, 0.3);
+}
+
+#TraditionalWear img,
+#WesternWear img,
+#CasualWear img {
+    width: 100%;
+    max-width: 280px;
+    height: 240px;
+    object-fit: contain;
+    object-position: center;
+    border: 3px solid #f4a6c8;
+    border-radius: 25px;
+    margin: 0 auto 12px;
+    padding: 5px;
+    display: block;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 12px rgba(219, 112, 147, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#TraditionalWear img:hover,
+#WesternWear img:hover,
+#CasualWear img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 20px rgba(219, 112, 147, 0.4);
+}
+
+#TraditionalWear p:first-of-type,
+#WesternWear p:first-of-type,
+#CasualWear p:first-of-type {
+    font-size: 18px;
+    font-weight: bold;
+    color: #9c2868;
+    margin: 12px 0 8px;
+}
+
+#TraditionalWear p,
+#WesternWear p,
+#CasualWear p {
+    font-size: 15px;
+    color: #444;
+    margin: 8px 0;
+}
+
+#TraditionalWear button,
+#WesternWear button,
+#CasualWear button {
+    background-color: #c05a9b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    margin-top: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+#TraditionalWear button:hover,
+#WesternWear button:hover,
+#CasualWear button:hover {
+    background-color: deeppink;
+    transform: scale(1.05);
+    box-shadow: 0 5px 12px pink;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,466 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url("../images/bac.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Diwali Offer Banner */
+
+#top1 {
+    margin: 0;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    width: 100%;
+    min-height: 30px;
+    padding: 5px;
+}
+
+#offer {
+    text-align: center;
+    color: deeppink;
+    font-size: 18px;
+    font-weight: bold;
+    animation: blink 2s infinite;
+}
+
+/* Cash on Delivery Banner */
+
+#top {
+    margin: 0;
+    width: 100%;
+    min-height: 40px;
+    background-color: bisque;
+    color: black;
+    font-weight: 300;
+    text-align: center;
+}
+
+#text {
+    padding: 10px;
+    transition: opacity 0.5s ease;
+}
+
+/* Logo and Header */
+
+.logo {
+    color: black;
+    width: 100%;
+    position: relative;
+}
+
+#name {
+    font-weight: bolder;
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+}
+
+#name p {
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#name p:hover {
+    color: deeppink;
+    transform: scale(1.05);
+}
+
+/* Right Side Navigation */
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    text-align: center;
+    flex-wrap: nowrap;
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    cursor: pointer;
+    font-style: italic;
+}
+
+.icons div {
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icons div:hover {
+    color: deeppink;
+    transform: scale(1.08);
+}
+
+/* Main Navigation */
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    position: absolute;
+    top: 10px;
+    font-style: italic;
+}
+
+.categories p {
+    display: inline-block;
+    font-size: medium;
+    text-shadow: 2px 3px 4px gray;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.categories p:hover {
+    color: deeppink;
+    transform: scale(1.08);
+}
+
+.categories p.active {
+    color: deeppink;
+    font-weight: bold;
+    transform: scale(1.06);
+}
+
+/* Search Bar */
+
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    flex-wrap: wrap;
+    animation: slideUp 1s ease-out both;
+    animation-delay: 0.2s;
+}
+
+#searchInput {
+    width: 350px;
+    max-width: 90%;
+    padding: 12px 18px;
+    border: 2px solid pink;
+    border-radius: 25px;
+    outline: none;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: deeppink;
+    box-shadow: 0 0 10px pink;
+}
+
+.search-container button {
+    background-color: deeppink;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-container button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px pink;
+}
+
+#searchMessage {
+    width: 100%;
+    text-align: center;
+    color: deeppink;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Hero Image Section */
+
+#images {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+    animation: slideUp 1s ease-out both;
+    animation-delay: 0.4s;
+}
+
+#slide {
+    width: 90%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px gray;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Hero Content */
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 15px;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-content h1 {
+    font-size: 32px;
+    color: deeppink;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+/* Shop Now Button */
+
+.shopnow {
+    background-color: deeppink;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.shopnow:hover {
+    background-color: rgb(235, 153, 197);
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px pink;
+}
+
+/* Collections Section */
+
+.collections {
+    width: 100%;
+    padding: 45px 20px;
+    text-align: center;
+    animation: slideUp 1s ease-out both;
+    animation-delay: 0.6s;
+}
+
+.collections h2 {
+    color: rgb(243, 108, 180);
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: rgb(153, 35, 98);
+    margin-bottom: 30px;
+}
+
+/* Collection Cards */
+
+.collection-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.collection-card {
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 12px lightgray;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: slideUp 0.8s ease-out both;
+}
+
+.collection-card:nth-child(1) {
+    animation-delay: 0.7s;
+}
+
+.collection-card:nth-child(2) {
+    animation-delay: 0.9s;
+}
+
+.collection-card:nth-child(3) {
+    animation-delay: 1.1s;
+}
+
+.collection-card:nth-child(4) {
+    animation-delay: 1.3s;
+}
+
+.collection-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 22px deeppink;
+}
+
+/* Collection Images */
+
+.collection-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: transform 0.4s ease;
+}
+
+.collection-card:hover img {
+    transform: scale(1.03);
+}
+
+/* Collection Titles */
+
+.collection-card h3 {
+    color: #c2185b;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Collection Description */
+
+.collection-card p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+/* Animations */
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+
+@media (max-width: 900px) {
+    .collection-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .logo {
+        padding-bottom: 10px;
+    }
+
+    .categories {
+        position: static;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 10px;
+    }
+
+    .icons {
+        position: static;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 500px) {
+    #offer {
+        font-size: 14px;
+    }
+
+    .collection-container {
+        grid-template-columns: 1fr;
+    }
+
+    #images {
+        height: 320px;
+        padding: 10px;
+    }
+
+    #slide {
+        width: 100%;
+        height: 300px;
+    }
+
+    .hero-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 22px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .search-container {
+        padding: 15px 10px;
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+}
