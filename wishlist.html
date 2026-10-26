@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Wishlist | Blush & Bloom</title>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("images/bac.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .wishlist-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .wishlist-title {
+            text-align: center;
+            color: deeppink;
+            margin-bottom: 30px;
+        }
+
+        .wishlist-products {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .wishlist-card {
+            min-width: 0;
+            padding: 18px;
+            text-align: center;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .wishlist-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.25);
+        }
+
+        .wishlist-card img {
+            width: 100%;
+            max-width: 220px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .product-name {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .product-price {
+            color: deeppink;
+            font-weight: bold;
+        }
+
+        .wishlist-card button,
+        .empty-wishlist button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: 1px solid deeppink;
+            border-radius: 25px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .wishlist-card button:hover,
+        .empty-wishlist button:hover {
+            background: deeppink;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .remove-wishlist {
+            color: deeppink;
+        }
+
+        .empty-wishlist {
+            grid-column: 1 / -1;
+            padding: 40px 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+        }
+
+        .empty-wishlist h2 {
+            color: deeppink;
+        }
+        
+        .icons p.active {
+            color: deeppink;
+            font-weight: bold;
+            transform: scale(1.08);
+        }
+        .icons div.active {
+    color: deeppink;
+    font-weight: bold;
+    transform: scale(1.08);
+}
+
+      
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="top1">
+            <p id="offer">
+                🪔 Diwali Dhamaka Sale! 🎉 Flat 15% OFF on Your First Order! ✨
+            </p>
+        </div>
+
+        <div id="top">
+            <p id="text">🚚 Cash on Delivery available</p>
+        </div>
+
+        <div class="logo">
+
+            <div id="name">
+                <p onclick="openHome()">🎀Blush & Bloom</p>
+            </div>
+
+            <div class="categories">
+                <p onclick="openHome()">Home</p>
+                <p onclick="openDress()">Dress</p>
+                <p onclick="openAccessories()">Accessories</p>
+                <p onclick="openFootwear()">FootWear</p>
+                <p onclick="openBeauty()">Beauty</p>
+            </div>
+
+            <div class="icons" >
+                <div class="active" onclick="openWishlist()"> Wishlist</div>
+                <div onclick="openCart()">Cart</div>
+                <div onclick="openlogin()">Login</div>
+                <div onclick="openaboutus()">AboutUs</div>
+                <div onclick="opencontactus()">ContactUs</div>
+            </div>
+
+        </div>
+    </div>
+
+    <main class="wishlist-container">
+
+        <h1 class="wishlist-title">💗 My Wishlist 💗</h1>
+
+        <div id="wishlistProducts" class="wishlist-products"></div>
+
+    </main>
+
+    <script>
+        function getWishlist() {
+            return JSON.parse(localStorage.getItem("wishlist")) || [];
+        }
+
+        function displayWishlist() {
+            let wishlist = getWishlist();
+
+            let container = document.getElementById("wishlistProducts");
+
+            container.innerHTML = "";
+
+            if (wishlist.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-wishlist">
+                        <h2>Your Wishlist Is Empty 💔</h2>
+                        <p>Save your favourite products by clicking the heart button!</p>
+                        <button onclick="openDress()">Explore Dresses 👗</button>
+                        <button onclick="openAccessories()">Explore Accessories 🎀</button>
+                    </div>
+                `;
+
+                return;
+            }
+
+            wishlist.forEach((product, index) => {
+                container.innerHTML += `
+                    <div class="wishlist-card">
+                        <img src="${product.image}" alt="${product.name}">
+
+                        <p class="product-name">${product.name}</p>
+
+                        <p class="product-price">Rs ${product.price}</p>
+
+                        <button onclick="addWishlistToCart(${index})">
+                            🛍️ Add to Cart
+                        </button>
+
+                        <button class="remove-wishlist"
+                            onclick="removeFromWishlist(${index})">
+                            ❌ Remove
+                        </button>
+                    </div>
+                `;
+            });
+        }
+
+        function removeFromWishlist(index) {
+            let wishlist = getWishlist();
+
+            wishlist.splice(index, 1);
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+            displayWishlist();
+        }
+
+        function addWishlistToCart(index) {
+            let wishlist = getWishlist();
+            let product = wishlist[index];
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            let existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity = (existingProduct.quantity || 1) + 1;
+            } else {
+                cart.push({
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert(product.name + " added to cart 🛍️");
+        }
+
+        function openHome() {
+            window.location.href = "index.html";
+        }
+
+        function openDress() {
+            window.location.href = "dress.html";
+        }
+
+        function openAccessories() {
+            window.location.href = "accessories.html";
+        }
+
+        function openFootwear() {
+            window.location.href = "footwear.html";
+        }
+
+        function openBeauty() {
+            window.location.href = "Beauty.html";
+        }
+
+        function openCart() {
+            window.location.href = "cart.html";
+        }
+
+        function openWishlist() {
+            window.location.href = "wishlist.html";
+        }
+
+        function openlogin() {
+            window.location.href = "login.html";
+        }
+
+        function openaboutus() {
+            window.location.href = "about.html";
+        }
+
+        function opencontactus() {
+            window.location.href = "contact.html";
+        }
+
+        displayWishlist();
+    </script>
+    <script src="js/index.js"></script>
+    <script src="js/dress.js"></script>
+    <script src="js/footwear.js"></script>
+    <script src="js/accessories.js"></script>
+
+
+</body>
+</html>

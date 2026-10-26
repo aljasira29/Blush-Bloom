@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-Scale=1.0"><title>Blush & Bloom</title>
+    <link rel="stylesheet" href="css/index.css">
+    
+</head>
+    <body>
+        
+        <div class="container">
+           <div id="top1"><p id="offer">🪔 Diwali Dhamaka Sale! 🎉 Flat 15% OFF on Your First Order! ✨</p></div>
+            <div id="top"><p id="text">🚚 Cash on Delivery available</p></div>
+            <div class="logo"><div id="name"><p onclick="openHome()">🎀Blush & Bloom</p></div>
+            <div class="categories">
+            <p id="Home" class="active" onclick="openHome()">Home</p>
+             <p id="Dress" onclick="openDress()">Dress</p>
+             <p id="Accessories" onclick="openAccessories()">Accessories</p>
+             <p id="FootWear" onclick="openFootwear()">FootWear</p>
+             <p id="Perfume" onclick="openBeauty()">Beauty</p>         
+            </div>
+            <div class="icons">
+                <div onclick="openWishlist()">Wishlist</div>
+                <div onclick="openCart()">Cart</div>
+             <div id="login" onclick="openlogin()">Login</div>
+            <div id="aboutus" onclick="openaboutus()">AboutUs</div>
+            <div id="contactus" onclick="opencontactus()">ContactUs</div>
+</div><br><br><div class="search-container">
+    <input type="text" id="searchInput"
+           placeholder="🔍 Search Dress, Shoes, Makeup..."
+           onkeydown="if(event.key==='Enter') searchProduct()"><button onclick="searchProduct()">Search 🔍</button>
+
+<p id="searchMessage"></p>
+
+</div>
+              </div>
+               <div id="images">
+
+        <img id="slide" src="images/dress1.jpeg" alt="Fashion Collection">
+
+        <div class="hero-content">
+             <h1>Discover Your Perfect Style ✨</h1>
+                <p>
+                Elegance, Beauty and Fashion — All in One Place!
+            </p>
+              <button onclick="openDress()" class="shopnow">Shop Now 🛍️</button>
+
+
+            </div>
+            </div>
+              <div class="collections">
+
+        <h2>🌸 Discover Our Collections 🌸</h2>
+
+        <p class="subtitle">
+            Find Your Favourite Style at Blush & Bloom
+        </p>
+          <div class="collection-container">
+            <div class="collection-card">
+
+                <img src="images/dress1.jpeg" alt="Dress Collection">
+
+                <h3>👗 Dress Collection</h3>
+
+                <p>Explore Your Favourite Outfits</p>
+
+                <button onclick="openDress()" class="shopnow">Explore Now</button>
+
+            </div>
+             <div class="collection-card">
+
+                <img src="images/ac1.jpeg"
+                     alt="Accessories Collection">
+
+                <h3>💍 Accessories</h3>
+
+                <p>Complete Your Look With Style</p>
+
+                <button onclick="openAccessories()" class="shopnow"class="shopnow">Explore Now</button>
+
+            </div>
+             <div class="collection-card">
+
+                <img src="images/foot1.jpeg"
+                     alt="Footwear Collection">
+
+                <h3>👠 FootWear</h3>
+
+                <p>Step Into Your Favourite Style</p>
+
+                <button onclick="openFootwear()" class="shopnow">Explore Now</button>
+
+            </div>
+             <div class="collection-card">
+
+                <img src="images/be1.jpeg"
+                     alt="Beauty Collection">
+
+                <h3>💄 Beauty</h3>
+
+                <p>Discover Your Everyday Beauty</p>
+
+                <button  onclick="openBeauty()"  class="shopnow">Explore Now</button>
+
+            </div>
+</div>
+</div>
+
+
+    </section>
+       
+        <script src="js/index.js" ></script>
+        <script src="js/dress.js"></script>
+         <script src="js/footwear.js"></script>
+         <script src="js/accessories.js"></script>
+        
+    </body>
+</html>

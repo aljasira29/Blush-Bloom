@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | Blush & Bloom</title>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("images/bac.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #offer {
+            text-align: center;
+            color: deeppink;
+            font-size: 18px;
+            font-weight: bold;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .main-content {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .cart-container {
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.2);
+            animation: fadeup 0.8s ease forwards;
+        }
+
+        .cart-title {
+            text-align: center;
+            color: deeppink;
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            background: rgba(255, 228, 239, 0.75);
+            box-shadow: 0 3px 10px rgba(255, 20, 147, 0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .cart-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .cart-item img {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: white;
+        }
+
+        .item-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .item-details h3 {
+            color: #702044;
+            margin-top: 0;
+        }
+
+        .price {
+            color: deeppink;
+            font-weight: bold;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        button {
+            padding: 9px 14px;
+            border: 1px solid deeppink;
+            border-radius: 25px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: deeppink;
+            color: white;
+        }
+
+        .quantity-controls button {
+            min-width: 35px;
+            font-size: 16px;
+        }
+
+        .remove-btn {
+            color: #d00050;
+        }
+
+        .subtotal {
+            color: #702044;
+            font-weight: bold;
+        }
+
+        .cart-footer {
+            text-align: right;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid pink;
+        }
+
+        .total {
+            color: deeppink;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 35px 10px;
+            color: #702044;
+        }
+
+        .empty h3 {
+            color: deeppink;
+        }
+
+        .shop-btn {
+            margin-top: 15px;
+        }
+
+        .icons p.active {
+            color: deeppink;
+            font-weight: bold;
+            transform: scale(1.08);
+        }
+        .icons div.active {
+    color: deeppink;
+    font-weight: bold;
+    transform: scale(1.08);
+}
+
+        @keyframes fadeup {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="top1">
+            <p id="offer">🪔 Diwali Dhamaka Sale! 🎉 Flat 15% OFF on Your First Order! ✨</p>
+        </div>
+
+        <div id="top">
+            <p id="text">🚚 Cash on Delivery available</p>
+        </div>
+
+        <div class="logo">
+
+            <div id="name">
+                <p onclick="openHome()">🎀Blush & Bloom</p>
+            </div>
+
+            <div class="categories">
+                <p id="Home" onclick="openHome()">Home</p>
+                <p id="Dress" onclick="openDress()">Dress</p>
+                <p id="Accessories" onclick="openAccessories()">Accessories</p>
+                <p id="FootWear" onclick="openFootwear()">FootWear</p>
+                <p id="Perfume" onclick="openBeauty()">Beauty</p>
+            </div>
+
+            <div class="icons">
+                <div onclick="openWishlist()">Wishlist</div>
+                <div onclick="openCart()" class="active">Cart</div>
+                <div id="login" onclick="openlogin()">Login</div>
+                <div id="aboutus" onclick="openaboutus()">AboutUs</div>
+                <div id="contactus" onclick="opencontactus()">ContactUs</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <div class="cart-container">
+
+            <h1 class="cart-title">🛍️ My Shopping Cart 💗</h1>
+
+            <div id="cartItems"></div>
+
+            <div class="cart-footer">
+                <div class="total" id="totalAmount">Total: Rs. 0</div>
+
+                <button class="shop-btn" onclick="openDress()">
+                    💗 Continue Shopping
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function getCart() {
+            return JSON.parse(localStorage.getItem("cart")) || [];
+        }
+
+        function displayCart() {
+            let cart = getCart();
+            let cartItems = document.getElementById("cartItems");
+            let totalAmount = document.getElementById("totalAmount");
+
+            cartItems.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty">
+                        <h3>Your Cart Is Empty! 💔</h3>
+                        <p>Discover your favourite fashion products.</p>
+                        <button onclick="openDress()">Explore Dresses 👗</button>
+                    </div>
+                `;
+
+                totalAmount.textContent = "Total: Rs. 0";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                let quantity = item.quantity || 1;
+                let subtotal = item.price * quantity;
+
+                total += subtotal;
+
+                let imageHTML = item.image
+                    ? `<img src="${item.image}" alt="${item.name}">`
+                    : "";
+
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+
+                        ${imageHTML}
+
+                        <div class="item-details">
+                            <h3>${item.name}</h3>
+
+                            <p class="price">Price: Rs. ${item.price}</p>
+
+                            <div class="quantity-controls">
+                                <button onclick="changeQuantity(${index}, -1)">−</button>
+
+                                <span>${quantity}</span>
+
+                                <button onclick="changeQuantity(${index}, 1)">+</button>
+                            </div>
+
+                            <p class="subtotal">Subtotal: Rs. ${subtotal}</p>
+
+                            <button class="remove-btn" onclick="removeItem(${index})">
+                                ❌ Remove
+                            </button>
+                        </div>
+
+                    </div>
+                `;
+            });
+
+            totalAmount.textContent = "Total: Rs. " + total;
+        }
+
+        function changeQuantity(index, change) {
+            let cart = getCart();
+
+            cart[index].quantity = (cart[index].quantity || 1) + change;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            displayCart();
+        }
+
+        function removeItem(index) {
+            let cart = getCart();
+
+            cart.splice(index, 1);
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            displayCart();
+        }
+
+        displayCart();
+    </script>
+
+    <script src="js/index.js"></script>
+    <script src="js/dress.js"></script>
+    <script src="js/footwear.js"></script>
+    <script src="js/accessories.js"></script>
+
+</body>
+</html>

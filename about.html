@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us - Blush & Bloom</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("images/bac.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            font-style: italic;
+            color: #493341;
+        }
+
+        
+
+        #head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 3px 15px rgba(220, 100, 160, 0.15);
+        }
+
+        .logo h2 {
+            color: deeppink;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .logo h2:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav p {
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        nav p:hover {
+            color: deeppink;
+            transform: scale(1.08);
+        }
+
+
+        .categories p.active,
+        .icons p.active {
+            color: deeppink;
+            font-weight: bold;
+            transform: scale(1.08);
+        }
+
+        
+
+        #banner {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin: 30px 20px;
+            padding: 30px 15px;
+            animation: fadeUp 1s ease;
+        }
+
+        .banner-content h1 {
+            color: #a83279;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .banner-content p {
+            font-size: 18px;
+            margin: 12px 0;
+        }
+
+        .description {
+            color: #65445b;
+            line-height: 1.7;
+        }
+
+        
+
+        button {
+            background-color: deeppink;
+            color: white;
+            padding: 13px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(235, 153, 197);
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 5px 15px pink;
+        }
+
+      
+
+        #story {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 8%;
+        }
+
+        .story-image {
+            width: 45%;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgb(253, 208, 232);
+            transition: transform 0.8s ease;
+        }
+
+        .story-image img:hover {
+            transform: scale(1.03);
+        }
+
+        .story-content {
+            width: 50%;
+        }
+
+        .story-content h2 {
+            color: deeppink;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .story-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+
+        .mission {
+            text-align: center;
+            padding: 50px 7%;
+        }
+
+        .mission  h2 {
+            color: #a83279;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgb(231, 145, 191);
+            transition: all 0.4s ease;
+            animation: fadeUp 1s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 8px 25px rgb(240, 99, 174);
+        }
+
+        .card h3 {
+            color: deeppink;
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+      
+
+        .bottom {
+            text-align: center;
+            margin: 30px 0 60px;
+            padding: 30px 15px;
+        }
+
+        .bottom h2 {
+            color: deeppink;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .bottom p {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    <div id="head">
+
+        <div class="logo">
+            <h2>🎀 Blush & Bloom</h2>
+        </div>
+
+        <nav class="categories">
+            <p onclick="openHome()">Home</p>
+            <p onclick="openDress()">Dress</p>
+            <p onclick="openAccessories()">Accessories</p>
+            <p onclick="openFootwear()">FootWear</p>
+            <p onclick="openBeauty()">Beauty</p>
+        </nav>
+
+        <nav class="icons">
+            <p onclick="openWishlist()">Wishlist</p>
+            <p onclick="openCart()">Cart</p>
+            <p onclick="openlogin()">Login</p>
+            <p class="active">About Us</p>
+            <p onclick="openContact()">Contact Us</p>
+        </nav>
+
+    </div>
+
+    <div id="banner">
+
+        <div class="banner-content">
+
+            <h1>About Blush & Bloom 🌸</h1>
+
+            <p>Your Style, Your Story!</p>
+
+            <p class="description">
+                Discover the beauty of fashion and express
+                your unique style with us.
+            </p>
+
+            <button onclick="openShop()">
+                Explore Collection
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="story">
+
+        <div class="story-image">
+
+            <img src="images/ac5.jpeg"
+                 alt="Fashion Collection"
+                 id="img">
+
+        </div>
+
+        <div class="story-content">
+
+            <h2>Our Story 💗</h2>
+
+            <p>
+                Welcome to Blush & Bloom, your destination
+                for fashion, beauty, and everyday style.
+            </p>
+
+            <p>
+                We believe fashion is more than just clothing.
+                It is a way to express your personality,
+                confidence, and individuality.
+            </p>
+
+            <p>
+                From beautiful dresses and trendy accessories
+                to fashionable footwear and beauty essentials,
+                discover styles that make every moment special.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="mission">
+
+        <h2>What Makes Us Special? ✨</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>💖 Our Mission</h3>
+
+                <p>
+                    To make fashion shopping simple,
+                    enjoyable, and inspiring for everyone.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🌷 Our Vision</h3>
+
+                <p>
+                    To inspire confidence and creativity
+                    through beautiful fashion and style.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎀 Our Promise</h3>
+
+                <p>
+                    To help you discover your personal style
+                    and celebrate your uniqueness.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="bottom">
+
+        <h2>Bloom in Your Own Style! 🌸</h2>
+
+        <p>
+            Every style tells a story. Let yours shine!
+        </p>
+
+        <button onclick="openShop()">
+            Shop Now 🛍️
+        </button>
+
+    </section>
+
+    <script>
+
+        let image = ["images/ac1.jpeg", "images/ac2.jpeg", "images/ac3.jpeg"];
+
+        let imageIndex = 0;
+
+        setInterval(function () {
+
+            imageIndex = (imageIndex + 1) % image.length;
+
+            document.getElementById("img").src = image[imageIndex];
+
+        }, 2000);
+
+
+        function openHome() {
+            window.location.href = "index.html";
+        }
+
+        function openDress() {
+            window.location.href = "dress.html";
+        }
+
+        function openAccessories() {
+            window.location.href = "accessories.html";
+        }
+
+        function openFootwear() {
+            window.location.href = "footwear.html";
+        }
+
+        function openBeauty() {
+            window.location.href = "Beauty.html";
+        }
+
+        function openlogin() {
+            window.location.href = "login.html";
+        }
+
+        function openAbout() {
+            window.location.href = "about.html";
+        }
+
+        function openContact() {
+            window.location.href = "contact.html";
+        }
+
+        function openShop() {
+            window.location.href = "dress.html";
+        }
+         function openCart() {
+            window.location.href = "cart.html";
+        }
+        function openWishlist() {
+    window.location.href = "wishlist.html";
+}
+
+    </script>
+
+</body>
+
+</html>

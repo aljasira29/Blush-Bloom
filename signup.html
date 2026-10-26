@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - Blush & Bloom</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe0ec, #fff5f8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 350px;
+            max-width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px pink;
+            animation: slideUp 0.8s ease;
+        }
+
+        h2 {
+            text-align: center;
+            color: deeppink;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid pink;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: deeppink;
+            box-shadow: 0 0 5px pink;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: deeppink;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #c2185b;
+            transform: scale(1.02);
+        }
+
+        #successMessage {
+            text-align: center;
+            color: green;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .login a {
+            color: deeppink;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>🎀 Create Account</h2>
+
+        <form id="signupForm" novalidate>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username"
+                >
+
+                <div id="usernameError" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="text"
+                    id="email"
+                    placeholder="Enter your email"
+                >
+
+                <div id="emailError" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                >
+
+                <div id="passwordError" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                >
+
+                <div id="confirmPasswordError" class="error"></div>
+            </div>
+
+            <button type="submit">Sign Up 💗</button>
+
+            <div id="successMessage"></div>
+
+        </form>
+
+        <div class="login">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+
+    </div>
+
+    <script>
+        const form = document.getElementById("signupForm");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const username =
+                document.getElementById("username").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            const usernameError =
+                document.getElementById("usernameError");
+
+            const emailError =
+                document.getElementById("emailError");
+
+            const passwordError =
+                document.getElementById("passwordError");
+
+            const confirmPasswordError =
+                document.getElementById("confirmPasswordError");
+
+            const successMessage =
+                document.getElementById("successMessage");
+
+            usernameError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            confirmPasswordError.textContent = "";
+            successMessage.textContent = "";
+
+            let isValid = true;
+
+            
+            if (username === "") {
+
+                usernameError.textContent =
+                    "Username is required";
+
+                isValid = false;
+
+            } else if (username.length < 3) {
+
+                usernameError.textContent =
+                    "Username must contain at least 3 characters";
+
+                isValid = false;
+            }
+
+        
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+
+                emailError.textContent =
+                    "Email is required";
+
+                isValid = false;
+
+            } else if (!emailPattern.test(email)) {
+
+                emailError.textContent =
+                    "Enter a valid email address";
+
+                isValid = false;
+            }
+
+            
+            if (password === "") {
+
+                passwordError.textContent =
+                    "Password is required";
+
+                isValid = false;
+
+            } else if (password.length < 6) {
+
+                passwordError.textContent =
+                    "Password must contain at least 6 characters";
+
+                isValid = false;
+            }
+
+            
+            if (confirmPassword === "") {
+
+                confirmPasswordError.textContent =
+                    "Please confirm your password";
+
+                isValid = false;
+
+            } else if (password !== confirmPassword) {
+
+                confirmPasswordError.textContent =
+                    "Passwords do not match";
+
+                isValid = false;
+            }
+
+            
+            if (isValid) {
+
+                successMessage.textContent =
+                    "Sign Up successful! 💗";
+
+                setTimeout(function() {
+                    window.location.href = "index.html";
+                }, 1000);
+
+            }
+
+        });
+    </script>
+    <script src="js/index.js"></script>
+
+</body>
+</html>

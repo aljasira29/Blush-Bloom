@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blush & Bloom - Western Wear</title>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <style>
+
+         * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("images/bac.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 25px;
+            margin: 30px;
+            margin-top: 90px;
+            align-items: start;
+        }
+
+        #sidenav {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.2);
+        }
+
+        #sidenav h3 {
+            color: deeppink;
+            margin: 5px 0 12px;
+        }
+
+        #sidenav p {
+            background: pink;
+            padding: 12px;
+            margin: 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #sidenav p:hover {
+            background: deeppink;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .single {
+            min-width: 0;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.2);
+            text-align: center;
+            animation: fadeup 1s ease forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .single:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 8px 18px rgba(255, 20, 147, 0.3);
+        }
+
+        .single img {
+            width: 100%;
+            max-width: 350px;
+            height: 300px;
+            object-fit: contain;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: transform 0.4s ease;
+        }
+
+        .single img:hover {
+            transform: scale(1.05);
+        }
+
+        .name {
+            text-align: center;
+            color: black;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .name:hover {
+            color: deeppink;
+        }
+
+        .rate {
+            text-align: center;
+            font-weight: bold;
+            color: deeppink;
+        }
+
+        .single button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 8px 12px;
+            border: 1px solid deeppink;
+            border-radius: 25px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 3px;
+        }
+
+        .single button:hover {
+            background: deeppink;
+            color: white;
+        }
+
+        .like-btn {
+            width: 45px;
+            font-size: 18px;
+        }
+
+        .cart-btn {
+            font-size: 13px;
+        }
+        #offer {
+    text-align: center;
+    color: deeppink;
+    font-size: 18px;
+    font-weight: bold;
+    animation: blink 2s infinite;
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+        @keyframes fadeup {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+       
+
+    </style>
+</head>
+
+<body>
+
+    
+
+    <div class="container">
+
+       <div id="top1"><p id="offer">🪔 Diwali Dhamaka Sale! 🎉 Flat 15% OFF on Your First Order! ✨</p></div>
+        <div id="top">
+            <p id="text">🚚 Cash on Delivery Available</p>
+        </div>
+
+        <div class="logo">
+
+            <div id="name">
+                <p>🎀Blush & Bloom</p>
+            </div>
+
+            <div class="categories">
+
+                <p id="Home" onclick="openHome()">Home</p>
+
+                <p id="Dress" onclick="openDress()" class="active">Dress</p>
+
+                <p id="Accessories" onclick="openAccessories()">Accessories</p>
+
+                <p id="FootWear" onclick="openFootwear()">FootWear</p>
+
+                <p id="Perfume" onclick="openBeauty()">Beauty</p>
+
+            </div>
+
+            <div class="icons">
+                <div onclick="openWishlist()">Wishlist</div>
+                <div onclick="openCart()">Cart</div>
+
+                <div id="login" onclick="openlogin()">Login</div>
+
+                <div id="aboutus" onclick="openaboutus()">AboutUs</div>
+
+                <div id="contactus" onclick="opencontactus()">ContactUs</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="main-content">
+
+        
+
+        <div id="sidenav">
+
+            <h3><u>Categories</u></h3>
+
+            <p onclick="openTraditionalWear()">
+                👗 Traditional Wear
+            </p>
+
+            <p onclick="openCasualWear()">
+                🌸 Casual Wear
+            </p>
+
+        </div>
+
+        
+
+        <div class="products">
+
+            
+
+            <div class="single">
+
+                <img src="images/dress5.jpeg" alt="Floral Maxi Dress">
+
+                <p class="name">🌸 Floral Maxi Dress</p>
+
+                <p class="rate">Rs. 599</p>
+
+                <button class="like-btn"
+                    onclick="togglelike(this)">♡</button>
+
+                <button class="cart-btn"
+                    onclick="addtocart('Floral Maxi Dress', 599)">
+                    🛍️ Add to Cart
+                </button>
+
+            </div>
+
+            
+
+            <div class="single">
+
+                <img src="images/dress6.jpeg" alt="Bodycon Dress">
+
+                <p class="name">💕 Bodycon Dress</p>
+
+                <p class="rate">Rs. 999</p>
+
+                <button class="like-btn"
+                    onclick="togglelike(this)">♡</button>
+
+                <button class="cart-btn"
+                    onclick="addtocart('Bodycon Dress', 999)">
+                    🛍️ Add to Cart
+                </button>
+
+            </div>
+
+            
+
+            <div class="single">
+
+                <img src="images/dress7.jpeg" alt="Crop Top with Skirt">
+
+                <p class="name">🌷 Crop Top with Skirt</p>
+
+                <p class="rate">Rs. 899</p>
+
+                <button class="like-btn"
+                    onclick="togglelike(this)">♡</button>
+
+                <button class="cart-btn"
+                    onclick="addtocart('Crop Top with Skirt', 899)">
+                    🛍️ Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <script>
+
+        
+
+       function togglelike(button) {
+    let productCard = button.closest(".single");
+
+    let productName = productCard.querySelector(".name").textContent.trim();
+    let priceText = productCard.querySelector(".rate").textContent;
+    let productPrice = Number(priceText.replace(/[^0-9.]/g, ""));
+    let productImage = productCard.querySelector("img").getAttribute("src");
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    let existingProduct = wishlist.find(item => item.name === productName);
+
+    if (existingProduct) {
+        wishlist = wishlist.filter(item => item.name !== productName);
+
+        button.innerHTML = "♡";
+        button.classList.remove("liked");
+    } else {
+        wishlist.push({
+            name: productName,
+            price: productPrice,
+            image: productImage
+        });
+
+        button.innerHTML = "❤️";
+        button.classList.add("liked");
+    }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+}
+        
+
+       function addtocart(productName, price) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({
+            name: productName,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(productName + " added to cart 🛍️");
+}
+
+        function openTraditionalWear() {
+
+            window.location.href = "traditional.html";
+
+        }
+
+        function openCasualWear() {
+
+            window.location.href = "casual.html";
+
+        }
+
+    </script>
+
+    
+
+    <script src="js/index.js"></script>
+    <script src="js/dress.js"></script>
+    <script src="js/footwear.js"></script>
+    <script src="js/accessories.js"></script>
+     <script src="login.html"></script>
+    <script src="signup.html"></script>
+    <script src="about.html"></script>
+    <script src="contact.html"></script>
+
+</body>
+</html>

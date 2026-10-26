@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Blush & Bloom</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe0ec, #fff5f8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 350px;
+            max-width: 100%;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px pink;
+            animation: slideUp 0.8s ease;
+        }
+
+        h2 {
+            text-align: center;
+            color: deeppink;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid pink;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: deeppink;
+            box-shadow: 0 0 5px pink;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: deeppink;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+            transform: scale(1.02);
+        }
+
+        #successMessage {
+            color: green;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .signup {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .signup a {
+            color: deeppink;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>🎀 Blush & Bloom</h2>
+
+        <form id="loginForm" novalidate>
+
+            <div class="form-group">
+
+                <label for="email">Email</label>
+
+                <input
+                    type="text"
+                    id="email"
+                    placeholder="Enter your email"
+                >
+
+                <div id="emailError" class="error"></div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                >
+
+                <div id="passwordError" class="error"></div>
+
+            </div>
+
+            <button type="submit">Login</button>
+
+            <div id="successMessage"></div>
+
+        </form>
+
+        <div class="signup">
+            Don't have an account?
+            <a href="signup.html">Sign Up</a>
+        </div>
+
+    </div>
+
+    <script>
+
+        const form = document.getElementById("loginForm");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const emailError =
+                document.getElementById("emailError");
+
+            const passwordError =
+                document.getElementById("passwordError");
+
+            const successMessage =
+                document.getElementById("successMessage");
+
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            successMessage.textContent = "";
+
+            let isValid = true;
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+
+                emailError.textContent =
+                    "Email is required";
+
+                isValid = false;
+
+            } else if (!emailPattern.test(email)) {
+
+                emailError.textContent =
+                    "Enter a valid email address";
+
+                isValid = false;
+
+            }
+
+            if (password === "") {
+
+                passwordError.textContent =
+                    "Password is required";
+
+                isValid = false;
+
+            } else if (password.length < 6) {
+
+                passwordError.textContent =
+                    "Password must contain at least 6 characters";
+
+                isValid = false;
+
+            }
+
+            if (isValid) {
+
+                successMessage.style.color = "green";
+
+                successMessage.textContent =
+                    "Login successful! 💗 Redirecting to Home...";
+
+                setTimeout(function() {
+
+                    window.location.href = "home.html";
+
+                }, 1000);
+
+            }
+
+        });
+
+    </script>
+    <scripr src="js/index.js"></scripr>
+
+
+</body>
+</html>

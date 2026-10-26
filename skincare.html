@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("images/bac.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 25px;
+            margin: 30px;
+            margin-top: 90px;
+            align-items: start;
+        }
+
+        #sidenav {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 15px;
+            background-color: rgba(255, 240, 246, 0.95);
+            border: 1px solid pink;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px pink;
+        }
+
+        #sidenav h3 {
+            color: deeppink;
+            margin: 5px 0 10px;
+        }
+
+        #sidenav p {
+            background-color: #ffcfe0;
+            color: #702044;
+            padding: 12px;
+            margin: 0;
+            border: 1px solid #ffb6cf;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #sidenav p:hover {
+            background-color: deeppink;
+            color: white;
+            transform: translateX(5px);
+            box-shadow: 0 3px 8px pink;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin: 0;
+        }
+
+        .single {
+            width: 100%;
+            min-width: 0;
+            height: auto;
+            padding: 12px;
+            border-radius: 15px;
+            background-color: rgba(255, 240, 246, 0.95);
+            border: 1px solid #ffd0e0;
+            box-shadow: 0 4px 12px #e8b7c9;
+            animation: fadeup 1s ease forwards;
+            transition: 0.3s;
+        }
+
+        .single:hover {
+            box-shadow: 0 8px 20px #e8a5c0;
+        }
+
+        .single img {
+            display: block;
+            width: 70%;
+            height: 180px;
+            object-fit: cover;
+            margin: 0 auto;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .single img:hover {
+            transform: scale(1.04);
+        }
+
+        .single p {
+            transition: color 0.3s;
+        }
+
+        .single p:hover {
+            color: deeppink;
+        }
+
+        .name {
+            text-align: center;
+            color: #702044;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .rate {
+            text-align: center;
+            font-weight: bold;
+            color: deeppink;
+        }
+
+        .single button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 8px;
+            border: 1px solid deeppink;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 3px;
+            background-color: #fff8fb;
+        }
+
+        .single button:hover {
+            background-color: deeppink;
+            color: white;
+        }
+
+        .single .like-btn {
+            width: 45px;
+            font-size: 18px;
+        }
+
+        .single .cart-btn {
+            width: 65%;
+        }
+
+        .single .liked {
+            background-color: pink;
+        }
+        #offer {
+    text-align: center;
+    color: deeppink;
+    font-size: 18px;
+    font-weight: bold;
+    animation: blink 2s infinite;
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+        @keyframes fadeup {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+     
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+       <div id="top1"><p id="offer">🪔 Diwali Dhamaka Sale! 🎉 Flat 15% OFF on Your First Order! ✨</p></div>
+
+        <div id="top">
+            <p id="text">🚚 Cash on Delivery available</p>
+        </div>
+
+        <div class="logo">
+            <div id="name">
+                <p>🎀Blush & Bloom</p>
+            </div>
+
+            <div class="categories">
+                <p id="Home" onclick="openHome()">Home</p>
+                <p id="Dress" onclick="openDress()">Dress</p>
+                <p id="Accessories" onclick="openAccessories()">Accessories</p>
+                <p id="FootWear" onclick="openFootwear()">FootWear</p>
+                <p id="Perfume" onclick="openBeauty()" class="active">Beauty</p>
+            </div>
+
+            <div class="icons">
+                <div onclick="openWishlist()">Wishlist</div>
+                <div onclick="openCart()">Cart</div>
+                <div id="login" onclick="openlogin()">Login</div>
+                <div id="aboutus" onclick="openaboutus()">AboutUs</div>
+                <div id="contactus" onclick="opencontactus()">ContactUs</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <div id="sidenav">
+            <h3><u>Categories:</u></h3>
+            <p onclick="openmakeup()">💄 MakeUp</p>
+            <p onclick="openperfume()">🌸 Perfume</p>
+        </div>
+
+        <div class="products">
+
+            <div class="single">
+                <img src="images/be4.jpeg" alt="Face Cleanser">
+                <p class="name">🧴 Gentle Face Cleanser 🌸</p>
+                <p class="rate">Rs. 299</p>
+                <button class="like-btn" onclick="togglelike(this)">♡</button>
+                <button class="cart-btn" onclick="addtocart('Gentle Face Cleanser',299)">🛍️ Add to Cart</button>
+            </div>
+
+            <div class="single">
+                <img src="images/be.5.jpeg" alt="Moisturizer">
+                <p class="name">💧 Hydrating Moisturizer 💖</p>
+                <p class="rate">Rs. 399</p>
+                <button class="like-btn" onclick="togglelike(this)">♡</button>
+                <button class="cart-btn" onclick="addtocart('Hydrating Moisturizer',399)">🛍️ Add to Cart</button>
+            </div>
+
+            <div class="single">
+                <img src="images/be6.jpeg" alt="Sunscreen">
+                <p class="name">☀️ Daily Sunscreen SPF 50 ✨</p>
+                <p class="rate">Rs. 449</p>
+                <button class="like-btn" onclick="togglelike(this)">♡</button>
+                <button class="cart-btn" onclick="addtocart('Daily Sunscreen SPF 50',449)">🛍️ Add to Cart</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function togglelike(button) {
+    let productCard = button.closest(".single");
+
+    let productName = productCard.querySelector(".name").textContent.trim();
+    let priceText = productCard.querySelector(".rate").textContent;
+    let productPrice = Number(priceText.replace(/[^0-9.]/g, ""));
+    let productImage = productCard.querySelector("img").getAttribute("src");
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    let existingProduct = wishlist.find(item => item.name === productName);
+
+    if (existingProduct) {
+        wishlist = wishlist.filter(item => item.name !== productName);
+
+        button.innerHTML = "♡";
+        button.classList.remove("liked");
+    } else {
+        wishlist.push({
+            name: productName,
+            price: productPrice,
+            image: productImage
+        });
+
+        button.innerHTML = "❤️";
+        button.classList.add("liked");
+    }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+}
+
+        function addtocart(productName, price) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({
+            name: productName,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(productName + " added to cart 🛍️");
+}
+        function openmakeup() {
+            window.location.href = "makeup.html";
+        }
+    </script>
+
+    <script src="js/index.js"></script>
+    <script src="js/dress.js"></script>
+    <script src="js/footwear.js"></script>
+    <script src="js/accessories.js"></script>
+    <script src="js/beauty.js"></script>
+
+</body>
+</html>

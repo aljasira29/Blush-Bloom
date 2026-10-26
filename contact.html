@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us - Blush & Bloom</title>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url("images/bac.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+
+        font-family: Arial, sans-serif;
+        font-style: italic;
+        color: #493341;
+        min-height: 100vh;
+    }
+
+    #head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 30px;
+
+        background: rgba(255, 255, 255, 0.85);
+
+        box-shadow: 0 3px 15px rgba(220, 100, 160, 0.15);
+
+        flex-wrap: wrap;
+    }
+
+    .logo h2 {
+        color: deeppink;
+        white-space: nowrap;
+        transition: 0.3s;
+    }
+
+    .logo h2:hover {
+        transform: scale(1.05);
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    nav p {
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+        font-size: 15px;
+    }
+
+    nav p:hover {
+        color: deeppink;
+        transform: scale(1.08);
+    }
+
+    .categories p.active,
+    .icons p.active {
+        color: deeppink;
+        font-weight: bold;
+        transform: scale(1.08);
+    }
+
+    #banner {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        margin: 35px 20px;
+        padding: 30px 15px;
+
+        animation: fadeUp 1s ease;
+    }
+
+    .banner-content {
+        width: 100%;
+        max-width: 850px;
+    }
+
+    .banner-content h1 {
+        color: #a83279;
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .banner-content > p {
+        color: #65445b;
+        font-size: 18px;
+        line-height: 1.8;
+        margin: 12px 0;
+    }
+
+    .contact-box {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 30px 0;
+    }
+
+    .contact-item {
+        background: rgba(255, 255, 255, 0.85);
+
+        width: 220px;
+        padding: 25px 18px;
+
+        border: 1px solid #f3b6d2;
+        border-radius: 15px;
+
+        box-shadow: 0 4px 15px rgba(231, 145, 191, 0.4);
+
+        transition: 0.3s;
+    }
+
+    .contact-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(240, 99, 174, 0.4);
+    }
+
+    .contact-item h3 {
+        color: deeppink;
+        margin-bottom: 12px;
+        font-size: 19px;
+    }
+
+    .contact-item p {
+        color: #65445b;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .contact-form {
+        width: 400px;
+        max-width: 100%;
+
+        margin: 35px auto;
+        padding: 30px;
+
+        background-color: white;
+
+        border-radius: 15px;
+        border: 1px solid #f3b6d2;
+
+        box-shadow: 0 0 20px pink;
+
+        text-align: left;
+
+        animation: slideUp 0.8s ease;
+    }
+
+    .contact-form h2 {
+        text-align: center;
+        color: deeppink;
+        margin-bottom: 12px;
+        font-size: 25px;
+    }
+
+    .form-description {
+        text-align: center;
+        color: #8b416b;
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .contact-form label {
+        display: block;
+        margin-bottom: 7px;
+        color: #444;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+
+        border: 1px solid pink;
+        border-radius: 8px;
+
+        outline: none;
+
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+
+        background-color: #fffafd;
+
+        transition: 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: deeppink;
+        box-shadow: 0 0 5px pink;
+        background-color: white;
+    }
+
+    .contact-form textarea {
+        height: 110px;
+        resize: vertical;
+    }
+
+    .error {
+        color: red;
+        font-size: 13px;
+        margin-top: 6px;
+        line-height: 1.4;
+    }
+
+    .contact-form button {
+        width: 100%;
+        padding: 12px;
+
+        background-color: deeppink;
+        color: white;
+
+        border: none;
+        border-radius: 8px;
+
+        cursor: pointer;
+        font-size: 16px;
+
+        transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+        background-color: #c2185b;
+        transform: scale(1.02);
+        box-shadow: 0 5px 15px pink;
+    }
+
+    #successMessage {
+        color: green;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+
+        margin-top: 40px;
+
+        background: rgba(255, 255, 255, 0.85);
+
+        color: #8b416b;
+        font-size: 14px;
+    }
+
+    @keyframes fadeUp {
+
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+    @keyframes slideUp {
+
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<div id="head">
+
+    <div class="logo">
+        <h2>🎀 Blush & Bloom</h2>
+    </div>
+
+    <nav class="categories">
+
+        <p onclick="openHome()">Home</p>
+
+        <p onclick="openDress()">Dress</p>
+
+        <p onclick="openAccessories()">Accessories</p>
+
+        <p onclick="openFootwear()">FootWear</p>
+
+        <p onclick="openBeauty()">Beauty</p>
+
+    </nav>
+
+    <nav class="icons">
+        <p onclick="openWishlist()">Wishlist</p>
+        <p onclick="openCart()">Cart</p>
+
+        <p onclick="openlogin()">Login</p>
+
+        <p onclick="openaboutus()">About Us</p>
+
+        <p class="active">Contact Us</p>
+
+    </nav>
+
+</div>
+
+<section id="banner">
+
+    <div class="banner-content">
+
+        <h1>Contact Us 💌</h1>
+
+        <p>We'd Love to Hear From You! 💗</p>
+
+        <p>
+            Have a question or need help?
+            Contact Blush & Bloom. We're happy to hear from you!
+        </p>
+
+        <div class="contact-box">
+
+            <div class="contact-item">
+
+                <h3>📧 Email Us</h3>
+
+                <p>
+                    Have any questions?
+                    Send us your enquiries through our contact form.
+                </p>
+
+            </div>
+
+            <div class="contact-item">
+
+                <h3>🛍️ Shopping Help</h3>
+
+                <p>
+                    Need help with dresses, accessories,
+                    footwear or beauty products?
+                    We're here to help!
+                </p>
+
+            </div>
+
+            <div class="contact-item">
+
+                <h3>💖 Customer Care</h3>
+
+                <p>
+                    Your shopping experience matters to us.
+                    Share your questions and feedback.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="contact-form">
+
+            <h2>🎀 Get In Touch</h2>
+
+            <p class="form-description">
+                We'd love to hear from you!
+            </p>
+
+            <form id="contactForm" novalidate>
+
+                <div class="form-group">
+
+                    <label for="name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                    >
+
+                    <div id="nameError" class="error"></div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+
+                    <div id="emailError" class="error"></div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="subject">Subject</label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        placeholder="Enter subject"
+                    >
+
+                    <div id="subjectError" class="error"></div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="userMessage">Your Message</label>
+
+                    <textarea
+                        id="userMessage"
+                        placeholder="Type your message here..."
+                    ></textarea>
+
+                    <div id="messageError" class="error"></div>
+
+                </div>
+
+                <button type="submit">
+                    Send Message 💗
+                </button>
+
+                <div id="successMessage"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 Blush & Bloom | Made with 💗 for Fashion Lovers
+    </p>
+
+</footer>
+
+<script>
+
+    function openHome() {
+        window.location.href = "index.html";
+    }
+
+    function openDress() {
+        window.location.href = "dress.html";
+    }
+
+    function openAccessories() {
+        window.location.href = "accessories.html";
+    }
+
+    function openFootwear() {
+        window.location.href = "footwear.html";
+    }
+
+    function openBeauty() {
+        window.location.href = "Beauty.html";
+    }
+
+    function openlogin() {
+        window.location.href = "login.html";
+    }
+
+    function openaboutus() {
+        window.location.href = "about.html";
+    }
+    function opencontactus() {
+        window.location.href = "contact.html";
+    }
+     function openCart() {
+            window.location.href = "cart.html";
+        }
+function openWishlist() {
+    window.location.href = "wishlist.html";
+}
+
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+
+        const email = document.getElementById("email").value.trim();
+
+        const subject = document.getElementById("subject").value.trim();
+
+        const userMessage = document.getElementById("userMessage").value.trim();
+
+        const nameError = document.getElementById("nameError");
+
+        const emailError = document.getElementById("emailError");
+
+        const subjectError = document.getElementById("subjectError");
+
+        const messageError = document.getElementById("messageError");
+
+        const successMessage = document.getElementById("successMessage");
+
+        nameError.textContent = "";
+
+        emailError.textContent = "";
+
+        subjectError.textContent = "";
+
+        messageError.textContent = "";
+
+        successMessage.textContent = "";
+
+        let isValid = true;
+
+        const namePattern = /^[a-zA-Z ]+$/;
+
+        if (name === "") {
+
+            nameError.textContent = "Name is required";
+
+            isValid = false;
+
+        } else if (!namePattern.test(name)) {
+
+            nameError.textContent = "Enter a valid name";
+
+            isValid = false;
+
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+
+            emailError.textContent = "Email is required";
+
+            isValid = false;
+
+        } else if (!emailPattern.test(email)) {
+
+            emailError.textContent = "Enter a valid email address";
+
+            isValid = false;
+
+        }
+
+        if (subject === "") {
+
+            subjectError.textContent = "Subject is required";
+
+            isValid = false;
+
+        }
+
+        if (userMessage === "") {
+
+            messageError.textContent = "Message is required";
+
+            isValid = false;
+
+        } else if (userMessage.length < 10) {
+
+            messageError.textContent =
+                "Message must contain at least 10 characters";
+
+            isValid = false;
+
+        }
+
+        if (isValid) {
+
+            successMessage.textContent =
+                "Thank you, " + name +
+                "! 💗 Your message has been submitted successfully.";
+
+            contactForm.reset();
+
+        }
+
+    });
+
+</script>
+
+</body>
+
+</html>
