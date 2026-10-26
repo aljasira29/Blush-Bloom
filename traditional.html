@@ -259,7 +259,7 @@
 
     let productName = productCard.querySelector(".name").textContent.trim();
     let priceText = productCard.querySelector(".rate").textContent;
-    let productPrice = Number(priceText.replace(/[^0-9.]/g, ""));
+    let productPrice = Number(priceText.replace(/\D/g, ""));
     let productImage = productCard.querySelector("img").getAttribute("src");
 
     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
