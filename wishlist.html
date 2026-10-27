@@ -1,304 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* Responsive design for tablets */
+@media screen and (max-width: 1024px) {
+    .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 10px;
+    }
 
-    <title>My Wishlist | Blush & Bloom</title>
+    #name {
+        order: -1;
+        width: 100%;
+        text-align: center;
+    }
 
-    <link rel="stylesheet" href="css/index.css">
+    .categories,
+    .icons {
+        position: static;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    .wishlist-container {
+        padding: 20px;
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-image: url("images/bac.jpeg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    .wishlist-products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
 
-        .wishlist-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .wishlist-title {
-            text-align: center;
-            color: deeppink;
-            margin-bottom: 30px;
-        }
-
-        .wishlist-products {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 25px;
-        }
-
-        .wishlist-card {
-            min-width: 0;
-            padding: 18px;
-            text-align: center;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .wishlist-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.25);
-        }
-
-        .wishlist-card img {
-            display:block;
-            width: 100%;
-            max-width: 350px;
-            height: 300px;
-            object-fit: contain;
-            margin:0 auto;
-            border-radius: 12px;
-        }
-
-        .product-name {
-            font-weight: bold;
-            font-style: italic;
-        }
-
-        .product-price {
-            color: deeppink;
-            font-weight: bold;
-        }
-
-        .wishlist-card button,
-        .empty-wishlist button {
-            padding: 10px 15px;
-            margin: 5px;
-            border: 1px solid deeppink;
-            border-radius: 25px;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .wishlist-card button:hover,
-        .empty-wishlist button:hover {
-            background: deeppink;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .remove-wishlist {
-            color: deeppink;
-        }
-
-        .empty-wishlist {
-            grid-column: 1 / -1;
-            padding: 40px 15px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-        }
-
-        .empty-wishlist h2 {
-            color: deeppink;
-        }
-        
-        .icons p.active {
-            color: deeppink;
-            font-weight: bold;
-            transform: scale(1.08);
-        }
-        .icons div.active {
-    color: deeppink;
-    font-weight: bold;
-    transform: scale(1.08);
+    .wishlist-card img {
+        max-width: 100%;
+        height: 260px;
+    }
 }
 
-      
-    </style>
-</head>
+/* Responsive design for mobile phones */
+@media screen and (max-width: 600px) {
+    #offer {
+        font-size: 14px;
+        padding: 5px;
+    }
 
-<body>
+    #text {
+        font-size: 13px;
+        padding: 10px 5px;
+    }
 
-    <div class="container">
+    .logo {
+        padding: 12px 8px;
+        gap: 12px;
+    }
 
-        <div id="top1">
-            <p id="offer">
-                🪔 Diwali Dhamaka Sale! 🎉 Flat 15% OFF on Your First Order! ✨
-            </p>
-        </div>
+    #name {
+        font-size: 16px;
+    }
 
-        <div id="top">
-            <p id="text">🚚 Cash on Delivery available</p>
-        </div>
+    .categories,
+    .icons {
+        gap: 10px;
+    }
 
-        <div class="logo">
+    .categories p,
+    .icons div {
+        font-size: 12px;
+    }
 
-            <div id="name">
-                <p onclick="openHome()">🎀Blush & Bloom</p>
-            </div>
+    .wishlist-container {
+        margin: 20px auto;
+        padding: 12px;
+    }
 
-            <div class="categories">
-                <p onclick="openHome()">Home</p>
-                <p onclick="openDress()">Dress</p>
-                <p onclick="openAccessories()">Accessories</p>
-                <p onclick="openFootwear()">FootWear</p>
-                <p onclick="openBeauty()">Beauty</p>
-            </div>
+    .wishlist-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 
-            <div class="icons" >
-                <div class="active" onclick="openWishlist()"> Wishlist</div>
-                <div onclick="openCart()">Cart</div>
-                <div onclick="openlogin()">Login</div>
-                <div onclick="openaboutus()">AboutUs</div>
-                <div onclick="opencontactus()">ContactUs</div>
-            </div>
+    .wishlist-products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
 
-        </div>
-    </div>
+    .wishlist-card {
+        padding: 10px;
+        border-radius: 12px;
+    }
 
-    <main class="wishlist-container">
+    .wishlist-card img {
+        height: 150px;
+        max-width: 100%;
+    }
 
-        <h1 class="wishlist-title">💗 My Wishlist 💗</h1>
+    .product-name {
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
 
-        <div id="wishlistProducts" class="wishlist-products"></div>
+    .product-price {
+        font-size: 13px;
+    }
 
-    </main>
+    .wishlist-card button,
+    .empty-wishlist button {
+        padding: 9px 10px;
+        margin: 4px 0;
+        font-size: 11px;
+        max-width: 100%;
+    }
 
-    <script>
-        function getWishlist() {
-            return JSON.parse(localStorage.getItem("wishlist")) || [];
-        }
+    .empty-wishlist {
+        padding: 25px 12px;
+    }
 
-        function displayWishlist() {
-            let wishlist = getWishlist();
+    .empty-wishlist h2 {
+        font-size: 20px;
+    }
 
-            let container = document.getElementById("wishlistProducts");
+    .empty-wishlist p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+}
 
-            container.innerHTML = "";
+/* Responsive design for very small phones */
+@media screen and (max-width: 360px) {
+    .categories,
+    .icons {
+        gap: 8px;
+    }
 
-            if (wishlist.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-wishlist">
-                        <h2>Your Wishlist Is Empty 💔</h2>
-                        <p>Save your favourite products by clicking the heart button!</p>
-                        <button onclick="openDress()">Explore Dresses 👗</button>
-                        <button onclick="openAccessories()">Explore Accessories 🎀</button>
-                    </div>
-                `;
+    .categories p,
+    .icons div {
+        font-size: 11px;
+    }
 
-                return;
-            }
+    .wishlist-products {
+        grid-template-columns: 1fr;
+    }
 
-            wishlist.forEach((product, index) => {
-                container.innerHTML += `
-                    <div class="wishlist-card">
-                        <img src="${product.image}" alt="${product.name}">
+    .wishlist-card {
+        padding: 15px;
+    }
 
-                        <p class="product-name">${product.name}</p>
+    .wishlist-card img {
+        height: 220px;
+    }
 
-                        <p class="product-price">Rs ${product.price}</p>
-
-                        <button onclick="addWishlistToCart(${index})">
-                            🛍️ Add to Cart
-                        </button>
-
-                        <button class="remove-wishlist"
-                            onclick="removeFromWishlist(${index})">
-                            ❌ Remove
-                        </button>
-                    </div>
-                `;
-            });
-        }
-
-        function removeFromWishlist(index) {
-            let wishlist = getWishlist();
-
-            wishlist.splice(index, 1);
-
-            localStorage.setItem("wishlist", JSON.stringify(wishlist));
-
-            displayWishlist();
-        }
-
-        function addWishlistToCart(index) {
-            let wishlist = getWishlist();
-            let product = wishlist[index];
-
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-            let existingProduct = cart.find(item => item.name === product.name);
-
-            if (existingProduct) {
-                existingProduct.quantity = (existingProduct.quantity || 1) + 1;
-            } else {
-                cart.push({
-                    name: product.name,
-                    price: product.price,
-                    image: product.image,
-                    quantity: 1
-                });
-            }
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-
-            alert(product.name + " added to cart 🛍️");
-        }
-
-        function openHome() {
-            window.location.href = "index.html";
-        }
-
-        function openDress() {
-            window.location.href = "dress.html";
-        }
-
-        function openAccessories() {
-            window.location.href = "accessories.html";
-        }
-
-        function openFootwear() {
-            window.location.href = "footwear.html";
-        }
-
-        function openBeauty() {
-            window.location.href = "Beauty.html";
-        }
-
-        function openCart() {
-            window.location.href = "cart.html";
-        }
-
-        function openWishlist() {
-            window.location.href = "wishlist.html";
-        }
-
-        function openlogin() {
-            window.location.href = "login.html";
-        }
-
-        function openaboutus() {
-            window.location.href = "about.html";
-        }
-
-        function opencontactus() {
-            window.location.href = "contact.html";
-        }
-
-        displayWishlist();
-    </script>
-    <script src="js/index.js"></script>
-    <script src="js/dress.js"></script>
-    <script src="js/footwear.js"></script>
-    <script src="js/accessories.js"></script>
-
-
-</body>
-</html>
+    .wishlist-title {
+        font-size: 21px;
+    }
+}
