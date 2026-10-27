@@ -17,7 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Diwali Offer Banner */
+
 
 #top1 {
     margin: 0;
@@ -38,7 +38,6 @@ body {
     animation: blink 2s infinite;
 }
 
-/* Cash on Delivery Banner */
 
 #top {
     margin: 0;
@@ -55,7 +54,6 @@ body {
     transition: opacity 0.5s ease;
 }
 
-/* Logo and Header */
 
 .logo {
     color: black;
@@ -81,7 +79,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Right Side Navigation */
+
 
 .icons {
     display: flex;
@@ -107,7 +105,7 @@ body {
     transform: scale(1.08);
 }
 
-/* Main Navigation */
+
 
 .categories {
     display: flex;
@@ -137,7 +135,7 @@ body {
     transform: scale(1.06);
 }
 
-/* Search Bar */
+
 
 .search-container {
     width: 100%;
@@ -190,7 +188,6 @@ body {
     margin-top: 5px;
 }
 
-/* Hero Image Section */
 
 #images {
     width: 100%;
@@ -214,7 +211,7 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* Hero Content */
+
 
 .hero-content {
     position: absolute;
@@ -240,7 +237,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Shop Now Button */
+
 
 .shopnow {
     background-color: deeppink;
@@ -261,7 +258,7 @@ body {
     box-shadow: 0 4px 12px pink;
 }
 
-/* Collections Section */
+
 
 .collections {
     width: 100%;
@@ -282,7 +279,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Collection Cards */
+
 
 .collection-container {
     display: grid;
@@ -323,7 +320,7 @@ body {
     box-shadow: 0 10px 22px deeppink;
 }
 
-/* Collection Images */
+
 
 .collection-card img {
     width: 100%;
@@ -338,7 +335,7 @@ body {
     transform: scale(1.03);
 }
 
-/* Collection Titles */
+
 
 .collection-card h3 {
     color: #c2185b;
@@ -346,7 +343,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* Collection Description */
+
 
 .collection-card p {
     color: #555;
@@ -355,7 +352,7 @@ body {
     line-height: 1.5;
 }
 
-/* Animations */
+
 
 @keyframes slideUp {
     from {
@@ -393,7 +390,7 @@ body {
     }
 }
 
-/* Responsive Design */
+
 
 @media (max-width: 900px) {
     .collection-container {
