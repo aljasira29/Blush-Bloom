@@ -22,7 +22,7 @@ function openFootwear(){
     window.location.href="footwear.html";
 }
 function openBeauty(){
-    window.location.href="Beauty.html";
+    window.location.href="beauty.html";
 };
 function openlogin(){
     window.location.href="login.html";
