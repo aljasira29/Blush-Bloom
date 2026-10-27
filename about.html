@@ -237,6 +237,188 @@
                 transform: translateY(0);
             }
         }
+        @media screen and (max-width: 1024px) {
+    #head {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+        padding: 18px 20px;
+    }
+
+    .logo,
+    nav {
+        justify-content: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    #story {
+        gap: 25px;
+        padding: 35px 5%;
+    }
+
+    .story-image {
+        width: 45%;
+    }
+
+    .story-content {
+        width: 55%;
+    }
+
+    .story-image img {
+        height: 300px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #head {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+    }
+
+    .logo h2 {
+        font-size: 21px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav p {
+        font-size: 13px;
+    }
+
+    #banner {
+        margin: 20px 10px;
+        padding: 25px 10px;
+    }
+
+    .banner-content h1 {
+        font-size: 26px;
+    }
+
+    .banner-content p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    #story {
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px 15px;
+    }
+
+    .story-image,
+    .story-content {
+        width: 100%;
+    }
+
+    .story-image img {
+        height: 250px;
+    }
+
+    .story-content h2 {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    .story-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .mission {
+        padding: 30px 15px;
+    }
+
+    .mission h2 {
+        font-size: 24px;
+        line-height: 1.4;
+        margin-bottom: 22px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    .card h3 {
+        font-size: 19px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .bottom {
+        margin: 20px 0 35px;
+        padding: 25px 15px;
+    }
+
+    .bottom h2 {
+        font-size: 23px;
+        line-height: 1.4;
+    }
+
+    .bottom p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    button {
+        padding: 12px 22px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .logo h2 {
+        font-size: 18px;
+    }
+
+    nav {
+        gap: 9px;
+    }
+
+    nav p {
+        font-size: 11px;
+    }
+
+    .banner-content h1 {
+        font-size: 22px;
+    }
+
+    .story-image img {
+        height: 210px;
+    }
+
+    .story-content h2 {
+        font-size: 22px;
+    }
+
+    .mission h2 {
+        font-size: 21px;
+    }
+
+    .bottom h2 {
+        font-size: 20px;
+    }
+}
 
        
     </style>
