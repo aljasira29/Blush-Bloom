@@ -258,7 +258,6 @@ body {
     }
 }
 
-/* Tablet Responsive Design */
 @media screen and (max-width: 1024px) {
     .logo {
         display: flex;
@@ -303,7 +302,7 @@ body {
     }
 }
 
-/* Mobile Responsive Design */
+
 @media screen and (max-width: 600px) {
     #top1 {
         padding: 5px 8px;
@@ -410,7 +409,7 @@ body {
     }
 }
 
-/* Extra Small Mobile */
+
 @media screen and (max-width: 360px) {
     .categories {
         gap: 9px;
